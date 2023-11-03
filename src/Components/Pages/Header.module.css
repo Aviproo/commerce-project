@@ -1,0 +1,91 @@
+.cartButton {
+  position: fixed;
+  right: 10px;
+
+  top: 2px;
+}
+.headerButton {
+  margin: 5px;
+}
+.header {
+  background-color: black;
+  width: 100%;
+  position: fixed;
+}
+.generics {
+  background-color: grey;
+  font-size: 119px;
+  padding: 10px;
+}
+.music {
+  font-size: 50px;
+  font-family: none;
+  padding-top: 15px;
+}
+.priceAndCartAdd {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 10px;
+}
+.showItem_map_div {
+  width: 45%;
+  margin: 20px;
+  padding: 10px;
+}
+.showItem {
+  display: flex;
+  flex-wrap: wrap;
+}
+.title {
+  margin: 15px;
+  padding: 24px;
+}
+.cart {
+  border: 1px solid black;
+  width: 500px;
+  height: 550px;
+  position: fixed;
+  top: 40px;
+  right: 0px;
+  z-index: 1;
+  background-color: white;
+}
+.closeButton {
+  position: fixed;
+  right: 10px;
+  top: 46px;
+  background-color: red;
+}
+.cartWord {
+  font-size: 45px;
+  margin-top: 15px;
+}
+.cartHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+.cartItem,
+.cartPrice,
+.cartQuantity {
+  font-size: 20px;
+  margin: 10px;
+  font-family: auto;
+  border-bottom: 1px solid;
+}
+.cartImage {
+  width: 80px;
+  margin: 10px;
+  border-radius: 20px;
+}
+.cartItemsTitle,
+.cartItemsPrice,
+.cartItemButton {
+  width: 90px;
+  margin: 10px;
+  border-radius: 20px;
+}
+.cartItemsInput {
+  width: 35px;
+  margin: 10px;
+}
