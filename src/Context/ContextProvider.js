@@ -16,12 +16,13 @@ const ContextProvider = (props) => {
     setItems([...items, item]);
   };
 
-  const removeItems = (id) => {};
+  const removeItems = (id) => {
+    console.log(id);
+  };
 
   const data = {
     items: items,
     openCart: openCart,
-
     openCartHandeler: openCartHandeler,
     addItems: addItems,
     removeItems: removeItems,

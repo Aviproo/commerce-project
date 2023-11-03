@@ -10,6 +10,9 @@ const Cart = () => {
   };
   let total = 0;
   const showCartItems = ctx.items.map((items) => {
+    const removeHandeler = () => {
+      ctx.removeItems(items.id);
+    };
     total += items.price;
     return (
       <div key={items.id}>
@@ -22,7 +25,11 @@ const Cart = () => {
           max={5}
           type="number"
         />
-        <Button variant="danger" className={classes.cartItemButton}>
+        <Button
+          variant="danger"
+          className={classes.cartItemButton}
+          onClick={removeHandeler}
+        >
           REMOVE
         </Button>
       </div>
@@ -46,7 +53,7 @@ const Cart = () => {
         </div>
         <div>{showCartItems}</div>
         <div>
-          <h2>Total Amount:{total}</h2>
+          <h2>Total Amount:₹{total}</h2>
         </div>
       </div>
     </>
