@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, NavLink } from "react-bootstrap";
 import Generics from "./Generics";
 import classes from "./Header.module.css";
 import Cart from "./Cart";
@@ -66,7 +66,9 @@ const Store = () => {
     return (
       <div className={classes.showItem_map_div} key={item.id}>
         <h4 className={classes.title}>{item.title}</h4>
+
         <img src={item.imageUrl} />
+
         <div className={classes.priceAndCartAdd}>
           <h2>₹{item.price}</h2>
           <Button onClick={addTocart}>ADD TO CART</Button>

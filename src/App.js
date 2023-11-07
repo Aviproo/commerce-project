@@ -6,6 +6,7 @@ import About from "./Components/Pages/About";
 import Store from "./Components/Pages/Store";
 import ContextProvider from "./Context/ContextProvider";
 import ContactUs from "./Components/Pages/ContactUS";
+import Detail_1 from "./Components/DetailPages/Detail_1";
 
 function App() {
   return (
@@ -13,10 +14,12 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route exact path="/Home" element={<Home />} />
-          <Route exact path="/About" element={<About />} />
-          <Route exact path="/Store" element={<Store />} />
-          <Route exact path="/Contact" element={<ContactUs />} />
+          <Route path="/" exact element={<Store />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Store" element={<Store />} />
+          <Route path="/Store/:Details" element={<Detail_1 />} />
+          <Route path="/Contact" element={<ContactUs />} />
         </Routes>
       </div>
     </ContextProvider>
