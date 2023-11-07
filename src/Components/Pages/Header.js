@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import { useContext } from "react";
 import Context from "../../Context/Context";
@@ -21,6 +21,9 @@ const Header = () => {
           </NavLink>
           <NavLink to="/About">
             <button className={classes.headerButton}>About</button>
+          </NavLink>
+          <NavLink to="/Contact">
+            <button className={classes.headerButton}>Contact US</button>
           </NavLink>
         </div>
         <div className={classes.cartButton}>

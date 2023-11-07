@@ -141,3 +141,15 @@
   width: 40px;
   margin: 10px;
 }
+.contactPage {
+  border: 1px solid;
+  margin-top: 40px;
+}
+.formDiv {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.formDiv div {
+  margin: 15px;
+}
