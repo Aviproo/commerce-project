@@ -25,6 +25,9 @@ const Header = () => {
           <NavLink to="/Contact">
             <button className={classes.headerButton}>Contact US</button>
           </NavLink>
+          <NavLink to="/Auth">
+            <button className={classes.headerButton}>Auth</button>
+          </NavLink>
         </div>
         <div className={classes.cartButton}>
           <Button onClick={openCartHandeler}>

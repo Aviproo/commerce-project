@@ -1,0 +1,15 @@
+.mainDiv {
+  margin: 20px;
+  display: flex;
+}
+.mainDiv div {
+  margin: 10px;
+}
+.generics {
+  background: skyblue;
+  color: #6f2323;
+  font-size: 70px;
+}
+.addToCartBtn {
+  margin-top: 10px;
+}

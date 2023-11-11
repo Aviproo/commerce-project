@@ -1,8 +1,9 @@
-import { Button, NavLink } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Generics from "./Generics";
 import classes from "./Header.module.css";
 import Cart from "./Cart";
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import Context from "../../Context/Context";
 
 const Store = () => {
@@ -67,7 +68,9 @@ const Store = () => {
       <div className={classes.showItem_map_div} key={item.id}>
         <h4 className={classes.title}>{item.title}</h4>
 
-        <img src={item.imageUrl} />
+        <NavLink to={`/Store/${item.id}`}>
+          <img src={item.imageUrl} />
+        </NavLink>
 
         <div className={classes.priceAndCartAdd}>
           <h2>₹{item.price}</h2>

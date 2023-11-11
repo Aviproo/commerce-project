@@ -4,6 +4,12 @@ import Context from "./Context";
 const ContextProvider = (props) => {
   const [openCart, setOpenCart] = useState();
   const [items, setItems] = useState([]);
+  const [token, setToken] = useState(null);
+
+  const tokenHandeler = (token) => {
+    setToken(token);
+    localStorage.setItem("token", token);
+  };
 
   const openCartHandeler = () => {
     setOpenCart(!openCart);
@@ -21,6 +27,8 @@ const ContextProvider = (props) => {
   };
 
   const data = {
+    token: token,
+    tokenHandeler: tokenHandeler,
     items: items,
     openCart: openCart,
     openCartHandeler: openCartHandeler,
