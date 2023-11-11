@@ -8,24 +8,26 @@ import ContextProvider from "./Context/ContextProvider";
 import ContactUs from "./Components/Pages/ContactUS";
 import Detail_1 from "./Components/DetailPages/Detail_1";
 import Auth from "./Components/AuthPage/Auth";
+import { useContext } from "react";
+import Context from "./Context/Context";
 
 function App() {
+  const ctx = useContext(Context);
+
   return (
-    <ContextProvider>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" exact element={<Store />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Store" element={<Store />} />
-          <Route path="/Store/:Details" element={<Detail_1 />} />
-          <Route path="/Contact" element={<ContactUs />} />
-          <Route path="/Auth" element={<Auth />} />
-          <Route path="*" element={<Navigate to="/Store" />} />
-        </Routes>
-      </div>
-    </ContextProvider>
+    <div className="App">
+      {ctx.show && <Header />}
+      <Routes>
+        <Route path="/store" element={<Store />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Store" element={<Store />} />
+        <Route path="/Store/:Details" element={<Detail_1 />} />
+        <Route path="/Contact" element={<ContactUs />} />
+        <Route path="/Auth" element={<Auth />} />
+        <Route path="*" element={<Navigate to="/Auth" />} />
+      </Routes>
+    </div>
   );
 }
 

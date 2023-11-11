@@ -5,10 +5,16 @@ const ContextProvider = (props) => {
   const [openCart, setOpenCart] = useState();
   const [items, setItems] = useState([]);
   const [token, setToken] = useState(null);
+  const [show, setShow] = useState(false);
+
+  const showHandler = () => {
+    setShow(true);
+  };
 
   const tokenHandeler = (token) => {
     setToken(token);
     localStorage.setItem("token", token);
+    setShow(true);
   };
 
   const openCartHandeler = () => {
@@ -27,6 +33,8 @@ const ContextProvider = (props) => {
   };
 
   const data = {
+    show: show,
+    showHandler: showHandler,
     token: token,
     tokenHandeler: tokenHandeler,
     items: items,

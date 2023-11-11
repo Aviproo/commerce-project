@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { Button } from "react-bootstrap";
 import Context from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
+import classes from "./Auth.module.css";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -42,7 +43,8 @@ const Auth = () => {
         return res.json().then((data) => {
           alert("authentication Successfull");
           ctx.tokenHandeler(data.idToken);
-          navigate("/");
+          ctx.showHandler();
+          navigate("/Store");
         });
       } else {
         return res.json().then((data) => {
@@ -52,16 +54,15 @@ const Auth = () => {
     });
   };
   return (
-    <div style={{ paddingTop: "50px" }}>
-      <form onSubmit={submitHandler}>
+    <div>
+      <div className={classes.welcome}>Welcome to the Generic </div>
+      <form onSubmit={submitHandler} className={classes.form}>
         <div>
-          Email:
-          <input ref={emailRef} />
+          <input ref={emailRef} placeholder="abc@gmail.com" />
         </div>
         <br />
         <div>
-          Password:
-          <input ref={passwordRef} />
+          <input ref={passwordRef} placeholder="123456" />
         </div>
         <br />
         <Button type="submit">{isLogIn ? "LogIn" : "SignIn"}</Button>
