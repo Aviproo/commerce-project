@@ -8,6 +8,10 @@ const Cart = () => {
   const openCartHandeler = () => {
     ctx.openCartHandeler();
   };
+
+  const placeOrder = () => {
+    ctx.placeOrder();
+  };
   let total = 0;
   const showCartItems = ctx.items.map((items) => {
     const removeHandeler = () => {
@@ -15,7 +19,7 @@ const Cart = () => {
     };
     total += items.price;
     return (
-      <div key={items.id}>
+      <div key={items._id}>
         <img src={items.imageUrl} className={classes.cartImage} />
         <span className={classes.cartItemsTitle}>{items.title}</span>
         <span className={classes.cartItemsPrice}>{items.price}</span>
@@ -55,6 +59,7 @@ const Cart = () => {
         <div>
           <h2>Total Amount:₹{total}</h2>
         </div>
+        <Button onClick={placeOrder}>Place order</Button>
       </div>
     </>
   );

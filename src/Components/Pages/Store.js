@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Context from "../../Context/Context";
+import axios from "axios";
 
 const Store = () => {
   const ctx = useContext(Context);
@@ -57,7 +58,6 @@ const Store = () => {
   const showItems = productsArr.map((item) => {
     const addTocart = () => {
       const cartItemsList = {
-        id: Math.random().toString(),
         title: item.title,
         imageUrl: item.imageUrl,
         price: item.price,

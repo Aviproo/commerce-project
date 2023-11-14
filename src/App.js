@@ -4,7 +4,6 @@ import Header from "./Components/Pages/Header";
 import Home from "./Components/Pages/Home";
 import About from "./Components/Pages/About";
 import Store from "./Components/Pages/Store";
-import ContextProvider from "./Context/ContextProvider";
 import ContactUs from "./Components/Pages/ContactUS";
 import Detail_1 from "./Components/DetailPages/Detail_1";
 import Auth from "./Components/AuthPage/Auth";

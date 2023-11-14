@@ -1,4 +1,16 @@
 import { createContext } from "react";
 
-const Context = createContext();
+const Context = createContext({
+  crud: "",
+  show: "",
+  showHandler: () => {},
+  emailId: "",
+  emailIdHandeler: () => {},
+  items: "",
+  openCart: "",
+  openCartHandeler: () => {},
+  addItems: () => {},
+  removeItems: () => {},
+  placeOrder: "",
+});
 export default Context;

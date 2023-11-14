@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import Context from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
 import classes from "./Auth.module.css";
+import axios from "axios";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -42,8 +43,15 @@ const Auth = () => {
       if (res.ok) {
         return res.json().then((data) => {
           alert("authentication Successfull");
-          ctx.tokenHandeler(data.idToken);
-          ctx.showHandler();
+          ctx.emailIdHandeler(data.email);
+          let crudId = "";
+          for (let i = 0; i < data.email.length; i++) {
+            if (data.email[i] == "@" || data.email[i] == ".") {
+              continue;
+            }
+            crudId += data.email[i];
+          }
+          ctx.showHandler(crudId);
           navigate("/Store");
         });
       } else {

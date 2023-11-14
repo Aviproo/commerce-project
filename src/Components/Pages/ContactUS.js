@@ -19,31 +19,35 @@ const ContactUs = () => {
 
   const submitHandeler = (event) => {
     event.preventDefault();
-    const inputData = {
-      name: name,
-      email: email,
-      phone: phone,
-    };
-    console.log(inputData);
 
-    fetch(
-      "https://ecommerce-contact-fe22c-default-rtdb.firebaseio.com/inputData.json",
-      {
-        method: "POST",
-        body: JSON.stringify(inputData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          console.log(alert("We received your data"));
+    if (phone.length < 10 || name.length <= 4 || phone.length > 10) {
+      alert("Name should not less then 4 character and number ten");
+    } else {
+      const inputData = {
+        name: name,
+        email: email,
+        phone: phone,
+      };
+
+      fetch(
+        "https://ecommerce-contact-fe22c-default-rtdb.firebaseio.com/inputData.json",
+        {
+          method: "POST",
+          body: JSON.stringify(inputData),
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      })
-      .catch((err) => {
-        alert("Something went Wrong");
-      });
+      )
+        .then((res) => {
+          if (res.ok) {
+            console.log(alert("We received your data"));
+          }
+        })
+        .catch((err) => {
+          alert("Something went Wrong");
+        });
+    }
   };
 
   return (
