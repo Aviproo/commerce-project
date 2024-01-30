@@ -5,7 +5,6 @@ import Cart from "./Cart";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Context from "../../Context/Context";
-import axios from "axios";
 
 const Store = () => {
   const ctx = useContext(Context);

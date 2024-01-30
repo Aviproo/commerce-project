@@ -5,13 +5,20 @@
   margin-bottom: 10px;
 }
 .form {
-  margin: auto;
-  width: 50%;
-
+  border-radius: 10px;
   padding: 10px;
-  border-radius: 50px;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
 
   box-shadow: 10px 10px 60px -9px rgba(0, 0, 0, 0.64);
   -webkit-box-shadow: 10px 10px 60px -9px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 10px 10px 60px -9px rgba(0, 0, 0, 0.64);
+}
+.form input {
+  width: 90%;
+}
+form button {
+  margin: 10px;
+  padding: 10px;
 }

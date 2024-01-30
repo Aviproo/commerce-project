@@ -153,3 +153,8 @@
 .formDiv div {
   margin: 15px;
 }
+.logout {
+  margin-right: 10px;
+  font-size: 12px;
+  border-radius: 39px;
+}

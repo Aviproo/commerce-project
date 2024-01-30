@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 import Context from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
 import classes from "./Auth.module.css";
-import axios from "axios";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -61,15 +60,19 @@ const Auth = () => {
       }
     });
   };
+
   return (
     <div>
       <div className={classes.welcome}>Welcome to the Generic </div>
       <form onSubmit={submitHandler} className={classes.form}>
         <div>
+          <h4>Email Id</h4>
+
           <input ref={emailRef} placeholder="abc@gmail.com" />
         </div>
         <br />
         <div>
+          <h4>Password</h4>
           <input ref={passwordRef} placeholder="123456" />
         </div>
         <br />
