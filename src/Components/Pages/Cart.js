@@ -13,22 +13,19 @@ const Cart = () => {
     ctx.placeOrder();
   };
   let total = 0;
-  const showCartItems = ctx.items.map((items) => {
+
+  const showCartItems = ctx.items.map((items, i) => {
     const removeHandeler = () => {
-      ctx.removeItems(items.id);
+      ctx.removeItems(i);
     };
     total += items.price;
     return (
-      <div key={items._id}>
+      <div key={items.i}>
         <img src={items.imageUrl} className={classes.cartImage} />
         <span className={classes.cartItemsTitle}>{items.title}</span>
         <span className={classes.cartItemsPrice}>{items.price}</span>
-        <input
-          className={classes.cartItemsInput}
-          min={1}
-          max={5}
-          type="number"
-        />
+        {/* <input >{items.number}/</input>> */}
+        <span className={classes.cartItemsInput}>x{items.number}</span>
         <Button
           variant="danger"
           className={classes.cartItemButton}
@@ -55,11 +52,15 @@ const Cart = () => {
           <span className={classes.cartPrice}>PRICE</span>
           <span className={classes.cartQuantity}>QUANTITY</span>
         </div>
-        <div>{showCartItems}</div>
         <div>
-          <h2>Total Amount:₹{total}</h2>
+          {showCartItems}
+          <div>
+            <div>
+              <h2>Total Amount:₹{total} </h2>
+              <Button onClick={placeOrder}> Place order</Button>
+            </div>
+          </div>
         </div>
-        <Button onClick={placeOrder}>Place order</Button>
       </div>
     </>
   );

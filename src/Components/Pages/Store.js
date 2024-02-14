@@ -19,6 +19,8 @@ const Store = () => {
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+
+      number: 1,
     },
 
     {
@@ -30,6 +32,7 @@ const Store = () => {
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+      number: 1,
     },
 
     {
@@ -41,6 +44,7 @@ const Store = () => {
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+      number: 1,
     },
 
     {
@@ -51,6 +55,7 @@ const Store = () => {
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+      number: 1,
     },
   ];
 
@@ -60,6 +65,7 @@ const Store = () => {
         title: item.title,
         imageUrl: item.imageUrl,
         price: item.price,
+        number: item.number,
       };
       ctx.addItems(cartItemsList);
     };

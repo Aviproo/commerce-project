@@ -29,12 +29,18 @@ function App() {
         crudId += local[i];
       }
       ctx.showHandler(crudId);
+
       const fetchItems = async () => {
         try {
+          // const crudData = await axios.get(
+          //   `https://crudcrud.com/api/8da03c2aee2340b5a3e5be19d2ec503c/${crudId}`
+          // );
+          // ctx.initialFetch(crudData.data);
           const crudData = await axios.get(
-            `https://crudcrud.com/api/8da03c2aee2340b5a3e5be19d2ec503c/${crudId}`
+            `https://deploytest-89118-default-rtdb.firebaseio.com/${crudId}.json`
           );
-          ctx.initialFetch(crudData.data);
+
+          ctx.initialFetch(Object.values(crudData.data));
         } catch (error) {
           console.error("Error posting data:", error);
         }
@@ -47,6 +53,7 @@ function App() {
     <div className="App">
       {ctx.show && <Header />}
       <Routes>
+        <Route path="*" element={<Navigate to="/Auth" />} />
         <Route path="/store" element={<Store />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -54,7 +61,6 @@ function App() {
         <Route path="/Store/:Details" element={<Detail_1 />} />
         <Route path="/Contact" element={<ContactUs />} />
         <Route path="/Auth" element={<Auth />} />
-        <Route path="*" element={<Navigate to="/Auth" />} />
       </Routes>
     </div>
   );

@@ -67,13 +67,12 @@ const Auth = () => {
       <form onSubmit={submitHandler} className={classes.form}>
         <div>
           <h4>Email Id</h4>
-
           <input ref={emailRef} placeholder="abc@gmail.com" />
         </div>
         <br />
         <div>
           <h4>Password</h4>
-          <input ref={passwordRef} placeholder="123456" />
+          <input ref={passwordRef} placeholder="12345678" />
         </div>
         <br />
         <Button type="submit">{isLogIn ? "LogIn" : "SignIn"}</Button>

@@ -10,9 +10,12 @@ const ContextProvider = (props) => {
   const [show, setShow] = useState(false);
   const [crud, setCrud] = useState("");
 
-  const crudLink = "2f694ed0136142d1afc299592d3a0af4";
-
-  const placeOrder = () => {
+  const emailIdHandeler = (emailId) => {
+    setEmailId(emailId);
+    localStorage.setItem("emailId", emailId);
+    setShow(true);
+  };
+  const placeOrder = async () => {
     if (data.items.length == 0) {
       alert("Nothing in your Cart");
     } else {
@@ -21,33 +24,27 @@ const ContextProvider = (props) => {
     }
   };
 
-  const emailIdHandeler = (emailId) => {
-    setEmailId(emailId);
-    localStorage.setItem("emailId", emailId);
-    setShow(true);
-  };
-
   const openCartHandeler = async () => {
     setOpenCart(!openCart);
     const crudData = await axios.get(
-      `https://crudcrud.com/api/${crudLink}/${data.crud}`
+      `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}.json`
     );
 
-    setItems(crudData.data);
+    setItems(Object.values(crudData.data));
   };
 
   const addItems = async (item) => {
     try {
       const response = await axios.post(
-        `https://crudcrud.com/api/${crudLink}/${data.crud}`,
+        `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}.json`,
         item
       );
 
       const crudData = await axios.get(
-        `https://crudcrud.com/api/${crudLink}/${data.crud}`
+        `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}.json`
       );
 
-      setItems(crudData.data);
+      setItems(Object.values(crudData.data));
     } catch (error) {
       console.error("Error posting data:", error);
     }
@@ -60,19 +57,21 @@ const ContextProvider = (props) => {
   const removeItems = async (id) => {
     try {
       const response = await axios.get(
-        `https://crudcrud.com/api/${crudLink}/${data.crud}`
+        `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}.json`
       );
-      let id = await response.data[0]._id;
 
-      const dlt = await axios.delete(
-        `https://crudcrud.com/api/${crudLink}/${data.crud}/${id}`
+      const delId = Object.entries(response.data)[id][0];
+      console.log(delId);
+
+      const deleteid = await axios.delete(
+        `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}/${delId}.json`
       );
 
       const crudData = await axios.get(
-        `https://crudcrud.com/api/${crudLink}/${data.crud}`
+        `https://deploytest-89118-default-rtdb.firebaseio.com/${data.crud}.json`
       );
 
-      setItems(crudData.data);
+      setItems(Object.values(crudData.data));
     } catch (error) {
       console.log(error);
     }
